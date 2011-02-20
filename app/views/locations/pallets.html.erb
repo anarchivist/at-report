@@ -1,0 +1,19 @@
+
+<table border=2 cellspacing="10" cellpadding="10" valign="top">
+<tr>
+<% @results.each do |r| %>
+  <td valign="top"><%= r.coordinate1Label + ' ' + r.coordinate1AlphaNumIndicator%>
+	<table valign="top">
+		<tr><th>Barcode</th><th>Box #</th><th>Coll #</th></tr>
+		<% r.instances.each do |i| %>
+		<tr>
+			<td><%= i.barcode %></td>
+			<td><%= i.container1Type %> <%= i.container1AlphaNumIndicator.presence || i.container1NumericIndicator %></td>
+			<td><%= i.resource.resourceIdentifier1 %> <%= i.resource.resourceIdentifier2 %></td>
+		</tr>
+		<% end %>
+	</table>
+	</td>
+<% end %>
+</tr>
+</table>
