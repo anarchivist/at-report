@@ -3,6 +3,9 @@ class Accession < ActiveRecord::Base
   set_primary_key 'accessionId'
   set_table_name 'Accessions'
   
+  has_many :locations, :through => :accession_location, :foreign_key => "accessionId"
+  has_many :accession_location, :foreign_key => "accessionId"
+  
   def agreements
     sql = get_query  
     connection.execute(sql)

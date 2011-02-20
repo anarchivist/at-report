@@ -1,7 +1,7 @@
 class Instance < ActiveRecord::Base
   set_primary_key 'archDescriptionInstancesId'
   set_table_name 'ArchDescriptionInstances'
-  belongs_to :location, :foreign_key => "locationId"
+  belongs_to :location, :class_name => "Location", :foreign_key => "locationId"
   belongs_to :resource, :foreign_key => "resourceId"
   belongs_to :resource_component, :foreign_key => "resourceComponentId"
   
